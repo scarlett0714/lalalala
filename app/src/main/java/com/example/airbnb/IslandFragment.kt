@@ -36,22 +36,39 @@ class IslandFragment : Fragment(), IslandView {
         islandService.sender(1) //원래는 안줘도 됨
         islandService.sender2(1) //원래는 안줘도 됨
 
-        initRecycler()
+        //initRecycler()
     }
 
-    private fun initRecycler() {
+//    private fun initRecycler() {
+//        binding.islandInfoRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//        islandRVAdapter = IslandRVAdapter()
+//        binding.islandInfoRv.adapter = islandRVAdapter
+//
+//
+//        //dummy
+//        datas.apply {
+//            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+//            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+//            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+//            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+//            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+//
+//            islandRVAdapter.datas = datas
+//            islandRVAdapter.notifyDataSetChanged()
+//
+//        }
+//    }
+
+    override fun onIslandSuccess(result: IslandResult) {
         binding.islandInfoRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         islandRVAdapter = IslandRVAdapter()
         binding.islandInfoRv.adapter = islandRVAdapter
 
+        //데이터개수만큼 for문쓰고
 
-        //dummy
         datas.apply {
-            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
-            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
-            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
-            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
-            add(IslandData(R.drawable.black_star, "MV, 몰디브", "12345", "12345", "12345"))
+
+            add(IslandData(null, result.place, result.distance, result.date, result.price))
 
             islandRVAdapter.datas = datas
             islandRVAdapter.notifyDataSetChanged()
@@ -59,19 +76,20 @@ class IslandFragment : Fragment(), IslandView {
         }
     }
 
-    override fun onIslandSuccess(result: IslandResult) {
-        Log.d("yaho", result.toString())
-    }
-
     override fun onIslandFailure(code: Int) {
-        TODO("Not yet implemented")
+
     }
 
-    override fun onIslandSuccess2(resultImg: IslandResultImg) {
-        Log.d("yaho2", resultImg.toString())
+    override fun onIslandSuccess2(resultImg: ArrayList<IslandResultImg>) {
+
+        var array = ArrayList<String>()
+        for (i in resultImg){
+            array.add(i.imgs)
+        }
+        datas[0].coverImg = array
     }
 
     override fun onIslandFailure2(code: Int) {
-        TODO("Not yet implemented")
+
     }
 }

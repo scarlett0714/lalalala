@@ -11,21 +11,21 @@ data class IslandResponse(
 
 data class IslandResult(
     @SerializedName("roomLocation") val place: String,
-    @SerializedName("roomDistance") val code: String,
+    @SerializedName("roomDistance") val distance: String,
     @SerializedName("roomDate") val date: String,
     @SerializedName("roomEndDate") val endDate: String,
     @SerializedName("cost") val price: Int,
     @SerializedName("roomRating") val rating: Double,
-    @SerializedName("roomLocation") val roomLike: Boolean
+    @SerializedName("roomLike") val roomLike: Int
 )
 
-data class IslandResponse2(
+data class IslandResponsetwo(
     @SerializedName("isSuccess") val isSuccess: Boolean,
     @SerializedName("code") val code: Int,
     @SerializedName("message") val message: String,
-    @SerializedName("result") val resultImg: IslandResultImg
+    @SerializedName("result") val resultImg: ArrayList<IslandResultImg>
 )
 
 data class IslandResultImg(
-    @SerializedName("result") val songs: ArrayList<String>
+    @SerializedName("roomImgUrl") val imgs: String
 )

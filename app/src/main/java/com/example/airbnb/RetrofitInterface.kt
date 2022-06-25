@@ -13,5 +13,5 @@ interface RetrofitInterface {
     @GET("/main/images/{roomIdx}")
     fun getIsland2(
         @Path("roomIdx") roomIdx: Int
-    ): Call<IslandResponse2> //response -> 나중에 Callback<>에 들어갈 내용
+    ): Call<IslandResponsetwo> //response -> 나중에 Callback<>에 들어갈 내용
 }

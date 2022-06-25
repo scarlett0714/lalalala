@@ -21,11 +21,12 @@ class IslandRVAdapter : RecyclerView.Adapter<IslandRVAdapter.ViewHolder>() {
         val price : TextView = binding.itemAccommodationPriceTv
 
         fun bind(item: IslandData) {
-            Glide.with(itemView).load(item.coverImg).into(coverImg)
+            //viewpager만들고 item.coverImg[position]
+            Glide.with(itemView).load(item.coverImg?.get(0)).into(coverImg)
             place.text = item.place
             distance.text = item.distance
             date.text = item.date
-            price.text = item.price
+            price.text = "${item.price}" //or toString()
         }
     }
 
