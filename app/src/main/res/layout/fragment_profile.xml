@@ -496,20 +496,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profile_invite_tv2"
-        android:text="호스트를 새로 추천할 때마다 19,412의 크레딧을 받으세요"
-        android:textSize="18dp"
-        android:textColor="@color/gray_color"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_invite_layout1"
-        />
-
     <View
         android:layout_width="360dp"
         android:layout_height="3px"
