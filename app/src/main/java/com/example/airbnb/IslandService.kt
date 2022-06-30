@@ -21,7 +21,9 @@ class IslandService {
         IslandService.getIsland(roomIdx).enqueue(object: Callback<IslandResponse> {
             //응답이 왔을 때 처리
             override fun onResponse(call: Call<IslandResponse>, response: Response<IslandResponse>) {
+                Log.d("response", response.body().toString())
                 val resp:IslandResponse = response.body()!!
+                Log.d("na", resp.toString())
                 when(resp.code){
                     //API code값 사용
                     1000->islandview.onIslandSuccess(resp.result) //result를 받아서 UI를 구현해야함
@@ -46,7 +48,7 @@ class IslandService {
                 Log.d("lilili", resp.toString())
                 when(resp.code){
                     //API code값 사용
-                    1000->islandview.onIslandSuccess2(resp.resultImg) //result를 받아서 UI를 구현해야함
+                    1000->islandview.onIslandSuccess2(resp.result_Img) //result를 받아서 UI를 구현해야함
                     else->islandview.onIslandFailure2(resp.code) //무슨 오류인지 알아야하므로 code가져가기
                 }
             }

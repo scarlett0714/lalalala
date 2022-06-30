@@ -1,5 +1,6 @@
 package com.example.airbnb
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -23,6 +24,7 @@ class IslandRVAdapter : RecyclerView.Adapter<IslandRVAdapter.ViewHolder>() {
         fun bind(item: IslandData) {
             //viewpager만들고 item.coverImg[position]
             Glide.with(itemView).load(item.coverImg?.get(0)).into(coverImg)
+            Log.d("img", item.coverImg?.get(0).toString())
             place.text = item.place
             distance.text = item.distance
             date.text = item.date

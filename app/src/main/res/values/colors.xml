@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimaryGrey">#424242</color>
     <color name="gray_color">#a8a8a8</color>
+    <color name="airbnb">#EC3737</color>
 
 </resources>

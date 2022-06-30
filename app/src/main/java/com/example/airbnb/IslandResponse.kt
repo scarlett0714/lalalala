@@ -7,6 +7,7 @@ data class IslandResponse(
     @SerializedName("code") val code: Int,
     @SerializedName("message") val message: String,
     @SerializedName("result") val result: IslandResult
+
 )
 
 data class IslandResult(
@@ -23,7 +24,7 @@ data class IslandResponsetwo(
     @SerializedName("isSuccess") val isSuccess: Boolean,
     @SerializedName("code") val code: Int,
     @SerializedName("message") val message: String,
-    @SerializedName("result") val resultImg: ArrayList<IslandResultImg>
+    @SerializedName("result") val result_Img: ArrayList<IslandResultImg>
 )
 
 data class IslandResultImg(
